@@ -74,5 +74,5 @@ kubectl create -f yamls/ingress.yaml
 
 20- configure pipeline script from SCM (add repository url, credentials, script path)
 
-30- configure jenkins file with build and deploy stages and variable image tag depends on the build number
+30- configure jenkinsfile with build and deploy stages and variable image tag depends on the build number
 
