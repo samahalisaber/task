@@ -12,13 +12,14 @@ pipeline {
             steps {
                 script {
                     sh 'cd ./Microservices'
-                    sh 'docker build -t docker.io/samahalisaber/python-task:latest .'
-                    sh 'docker podman push docker.io/samahalisaber/python-task:latest'
+                    sh 'docker build -t docker.io/samahalisaber/python-task:$BUILD_NUMBER .'
+                    sh 'docker podman push docker.io/samahalisaber/python-task:$BUILD_NUMBER'
                 }
             }
         }
         stage('Deploy') {
             steps {
+                    sed -i "s|@BUILD_NUMBER@|${BUILD_NUMBER}|g" yamls/deploy.yaml
                     sh 'kubectl apply -f yamls/deploy.yaml -n python'
                     sh 'kubectl apply -f yamls/svc.yaml -n python'
                     sh 'kubectl apply -f yamls/ingress.yaml -n python'
