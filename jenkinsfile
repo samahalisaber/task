@@ -12,8 +12,9 @@ pipeline {
             steps {
                 script {
                     sh 'cd ./Microservices'
-                    sh 'podman build -t docker.io/samahalisaber/python-task:latest .'
-                    sh 'podman push docker.io/samahalisaber/python-task:latest'
+                    sh 'whoami'
+                    sh 'sudo podman build -t docker.io/samahalisaber/python-task:latest .'
+                    sh 'sudo podman push docker.io/samahalisaber/python-task:latest'
                 }
             }
         }
