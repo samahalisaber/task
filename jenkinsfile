@@ -19,9 +19,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                    sh 'kubectl apply -f yamls/deploy.yaml'
-                    sh 'kubectl apply -f yamls/svc.yaml'
-                    sh 'kubectl apply -f yamls/ingress.yaml'
+                    sh 'kubectl apply -f yamls/deploy.yaml -n python'
+                    sh 'kubectl apply -f yamls/svc.yaml -n python'
+                    sh 'kubectl apply -f yamls/ingress.yaml -n python'
             }
         }
     }
