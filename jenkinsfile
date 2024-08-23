@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'cd ./python'
+                    sh 'cd ./Microservices'
                     sh 'docker build -t docker.io/samahalisaber/python-task:latest .'
                     sh 'docker push docker.io/samahalisaber/python-task:latest'
                 }
