@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    sh 'cd ./python'
+                    sh 'docker build -t docker.io/samahalisaber/python-task:latest .'
+                    sh 'docker push docker.io/samahalisaber/python-task:latest'
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                    sh 'kubectl apply -f yamls/deploy.yaml'
+                    sh 'kubectl apply -f yamls/svc.yaml'
+                    sh 'kubectl apply -f yamls/ingress.yaml'
+            }
+        }
+    }
+}
