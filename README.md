@@ -56,7 +56,7 @@ aws eks --region <region> update-kubeconfig --name <cluster-name>
 16- deploy the containerized Python microservice
 ```
 kubectl create -f yamls/deploy.yaml
-kubectl apply -f yamls/svc.yaml
+kubectl create -f yamls/svc.yaml
 ```
 17- install nginx ingress controller through helm package manager
 ```
