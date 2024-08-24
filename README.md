@@ -23,11 +23,12 @@ podman push docker.io/samahalisaber/python-task:v1.2
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 yum -y install terraform
 ```
-7- in aws create IAM user through aws console to use it in provisioning EKS
+7- in aws create IAM user through aws console to use it in provisioning EKS and assign to it the right policies
 
 8- generate access key for the user and save the access key and the secret key
 
 9- prepare terraform files to provision EKS
+  *including ( provider, vpc, igw, subnets, routes, eks cluster, node group, IAM policies)*
 ```
 cd terraform
 ```
