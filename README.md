@@ -1,11 +1,17 @@
+Task Documentation
+==========
 1- install the required packages
 ```
 yum install git wget zip yum-utils podman -y
 ```
+### Clone the Repository:
+
 2- clone the repository
 ```
 git clone https://github.com/sameh-Tawfiq/Microservices
 ```
+### Dockerize the Application:
+
 3- create Dockerfile to containerize the Python application
 
 4- build the Dockerfile
@@ -18,6 +24,8 @@ podman build . -t docker.io/samahalisaber/python-task:v1.2
 podman login docker.io
 podman push docker.io/samahalisaber/python-task:v1.2
 ```
+### Provision a Kubernetes Cluster:
+
 6- install terraform 
 ```
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
@@ -54,11 +62,15 @@ aws eks --region <region> update-kubeconfig --name <cluster-name>
 ```
 15- now we can use kubectl command 
 
+### Deploy the Microservice:
+
 16- deploy the containerized Python microservice
 ```
 kubectl create -f yamls/deploy.yaml
 kubectl create -f yamls/svc.yaml
 ```
+### Expose the Service to the Internet:
+
 17- install nginx ingress controller through helm package manager
 ```
 kubectl create ns ingress-controller
@@ -70,6 +82,7 @@ helm install ingress-nginx ingress-nginx/ingress-nginx -n ingres-controller
 ```
 kubectl create -f yamls/ingress.yaml
 ```
+### Implement a CI/CD pipeline:
 
 19- configure kubernetes cloud plugin in jenkins (add EKS url, token for authentication)
 
